@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using BusinessObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace BusinessObjects;
+namespace DataAccessLayer;
 
 public partial class FuminiHotelManagementContext : DbContext
 {
@@ -25,6 +26,17 @@ public partial class FuminiHotelManagementContext : DbContext
     public virtual DbSet<RoomInformation> RoomInformations { get; set; }
 
     public virtual DbSet<RoomType> RoomTypes { get; set; }
+
+    public bool IsAdmin(string email, string password)
+    {
+        IConfiguration configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", true, true).Build();
+        string adminEmail = configuration["AdminAccount:Email"];
+        string adminPassword = configuration["AdminAccount:Password"];
+
+        return adminEmail == email && adminPassword == password;
+    } 
 
     private string? GetConnectionString()
     {

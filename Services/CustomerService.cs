@@ -1,4 +1,5 @@
-﻿using Repositories;
+﻿using BusinessObjects;
+using Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,20 @@ namespace Services
             return instance;
         }
 
-        private readonly ICustomerRepository _customerRepository = CustomerRepository.GetInstance();
+        private UnitOfWork unitOfWork = new UnitOfWork();
+
+        public Customer? CustomerLogin(String email, String password)
+        {
+            var user = this.unitOfWork.CustomerRepository.Get(item => item.EmailAddress == email).FirstOrDefault();
+            return user != null && user.Password.Equals(password) ? user : null;
+        }
+
+        public bool AdminLogin(String email, String password) => this.unitOfWork.CustomerRepository.AdminLogin(email, password);
+
+        public void UpdateCustomer(Customer customer)
+        {
+            this.unitOfWork.CustomerRepository.Update(customer);
+            this.unitOfWork.SaveChanges();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DataAccessLayer;
+﻿using BusinessObjects;
+using DataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,19 +8,14 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    public class CustomerRepository : ICustomerRepository
+    public class CustomerRepository : GenericRepository<Customer>
     {
-        private static CustomerRepository instance;
-        private CustomerRepository() { }
-        public static CustomerRepository GetInstance()
+        public CustomerRepository(FuminiHotelManagementContext context) : base(context)
         {
-            if (instance == null)
-            {
-                instance = new CustomerRepository();
-            }
-            return instance;
         }
-
-        private readonly CustomerDAO _customerDAO = CustomerDAO.GetInstance();
+        public bool AdminLogin(string email, string password)
+        {
+            return this.context.IsAdmin(email, password);
+        }
     }
 }
