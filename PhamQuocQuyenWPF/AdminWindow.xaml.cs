@@ -23,5 +23,17 @@ namespace PhamQuocQuyenWPF
         {
             InitializeComponent();
         }
+
+        private void btnCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerManagementWindow customerManagementWindow = new CustomerManagementWindow();
+            customerManagementWindow.ShowDialog();
+        }
+
+        private void btnRoom_Click(object sender, RoutedEventArgs e)
+        {
+            RoomManagementWindow roomManagementWindow = new RoomManagementWindow();
+            roomManagementWindow.ShowDialog();
+        }
     }
 }

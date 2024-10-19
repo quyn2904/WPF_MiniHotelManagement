@@ -14,6 +14,7 @@ namespace Repositories
         private FuminiHotelManagementContext _context = new FuminiHotelManagementContext();
         private CustomerRepository _customerRepository;
         private GenericRepository<BookingReservation> _bookingReservationRepository;
+        private GenericRepository<RoomInformation> _roomInformationRepository;
 
         public CustomerRepository CustomerRepository
         {
@@ -36,6 +37,18 @@ namespace Repositories
                     _bookingReservationRepository = new GenericRepository<BookingReservation>(_context);
                 }
                 return _bookingReservationRepository;
+            }
+        }
+
+        public GenericRepository<RoomInformation> RoomInformationRepository
+        {
+            get
+            {
+                if (_roomInformationRepository == null)
+                {
+                    _roomInformationRepository = new GenericRepository<RoomInformation>(_context);
+                }
+                return _roomInformationRepository;
             }
         }
 

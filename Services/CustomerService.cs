@@ -36,5 +36,22 @@ namespace Services
             this.unitOfWork.CustomerRepository.Update(customer);
             this.unitOfWork.SaveChanges();
         }
+
+        public IEnumerable<Customer> GetAllCustomer()
+        {
+            return this.unitOfWork.CustomerRepository.Get();
+        }
+
+        public void AddCustomer(Customer cus)
+        {
+            this.unitOfWork.CustomerRepository.Insert(cus);
+            this.unitOfWork.SaveChanges();
+        }
+
+        public void DeleteCustomer(Customer cus)
+        {
+            this.unitOfWork.CustomerRepository.Delete(cus);
+            this.unitOfWork.SaveChanges();
+        }
     }
 }
