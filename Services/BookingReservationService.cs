@@ -24,5 +24,7 @@ namespace Services
         private UnitOfWork unitOfWork = new UnitOfWork();
 
         public List<BookingReservation> GetBookingReservations(int userId) => this.unitOfWork.BookingReservationRepository.Get(item => item.CustomerId.Equals(userId)).ToList();
+
+        public List<BookingReservation> GetAllBookingReservations() => this.unitOfWork.BookingReservationRepository.Get().ToList();
     }
 }

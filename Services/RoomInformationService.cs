@@ -42,7 +42,16 @@ namespace Services
 
         public void DeleteRoom(RoomInformation roomInformation)
         {
-            unitOfWork.RoomInformationRepository.Delete(roomInformation);
+            int bookingNums = roomInformation.BookingDetails.ToList().Count();
+            if (bookingNums > 0)
+            {
+                roomInformation.RoomStatus = 0;
+                unitOfWork.RoomInformationRepository.Update(roomInformation);
+            }
+            else
+            {
+                unitOfWork.RoomInformationRepository.Delete(roomInformation);
+            }
             unitOfWork.SaveChanges();
         }
     }

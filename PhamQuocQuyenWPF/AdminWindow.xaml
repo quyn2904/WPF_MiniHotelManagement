@@ -19,6 +19,6 @@
         <Button x:Name="btnCustomer" Content="CUSTOMER" HorizontalAlignment="Left" Margin="323,201,0,0" VerticalAlignment="Top" Height="134" Width="325" FontSize="40" FontWeight="Bold" Foreground="#FF158123" Click="btnCustomer_Click"/>
         <Button x:Name="btnRoom" Content="ROOM" HorizontalAlignment="Left" Margin="898,201,0,0" VerticalAlignment="Top" Height="134" Width="325" FontSize="40" FontWeight="Bold" Foreground="#FF158123" Click="btnRoom_Click"/>
         <Button x:Name="btnReport" Content="REPORT" HorizontalAlignment="Left" Margin="898,483,0,0" VerticalAlignment="Top" Height="134" Width="325" FontSize="40" FontWeight="Bold" Foreground="#FF158123"/>
-        <Button x:Name="btnBooking" Content="BOOKING" HorizontalAlignment="Left" Margin="323,483,0,0" VerticalAlignment="Top" Height="134" Width="325" FontSize="40" FontWeight="Bold" Foreground="#FF158123"/>
+        <Button x:Name="btnBooking" Content="BOOKING" HorizontalAlignment="Left" Margin="323,483,0,0" VerticalAlignment="Top" Height="134" Width="325" FontSize="40" FontWeight="Bold" Foreground="#FF158123" Click="btnBooking_Click"/>
     </Grid>
 </Window>

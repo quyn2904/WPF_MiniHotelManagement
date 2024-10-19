@@ -35,5 +35,11 @@ namespace PhamQuocQuyenWPF
             RoomManagementWindow roomManagementWindow = new RoomManagementWindow();
             roomManagementWindow.ShowDialog();
         }
+
+        private void btnBooking_Click(object sender, RoutedEventArgs e)
+        {
+            BookingManagementWindow bookingManagementWindow = new BookingManagementWindow();
+            bookingManagementWindow.ShowDialog();
+        }
     }
 }

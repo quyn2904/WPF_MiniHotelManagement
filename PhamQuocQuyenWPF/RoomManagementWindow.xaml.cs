@@ -98,5 +98,10 @@ namespace PhamQuocQuyenWPF
             ResetInput();
             LoadRoomInformation();
         }
+
+        private void txtDescription_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
